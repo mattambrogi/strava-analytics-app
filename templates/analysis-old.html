@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+<!-- Old Analysis. Same without collapse.-->
+
+{% block title %}Analysis{% endblock title %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid text-center" style="background-color:#1f262a; justify-content:center;">
+    <div class="container" style="color: white;">
+        <h1 class="display-4 ">Strava Analytics</h1>
+        <h2 class="display-4 ">Your Analysis</h2>
+    </div>
+</div>
+<div class="container-fluid d-flex h-100 flex-column">
+    <div class="row">
+        <div class="col-md-3 col-sm-0"></div>
+        <!-- Primary Column-->
+        <div class="col-md-6 col-sm-12">
+            <!-- Activity Overview -->
+            <h2 class="mb-5 text-center">Activities Overview</h2>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <p class="card-text">
+                            <ul style="list-style-type: none; margin: 0; padding: 0;">
+                                {% for key, value in overview.items %}
+                                <li>
+                                    <p><strong>{{value}}</strong> {{key}}</p>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    {% autoescape off %}
+                    <div>
+                        {{ overview_chart }}
+                    </div>
+                    {% endautoescape %}
+                </div>
+            </div>
+            <!-- Activity One-->
+            <hr class="mt-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <div>
+                        <h2 class="text-center">{{activity_one.name}} Analysis</h2>
+                        <h4 class="mb-5 text-center">Your #1 Activity</h4>
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <p>Max speed <strong>{{activity_one.max_speed}} mph</strong></p>
+                                <p>Average speed <strong>{{activity_one.avg_speed}} mph</strong></p>
+                                <p>Longest <strong>{{activity_one.max_distance}} mi </strong></p>
+                                <p>Mean length <strong> {{activity_one.avg_distance}} mi</strong></p>
+                                <p>Max elevation gain <strong>{{activity_one.max_elevation_gain}} ft </strong> </p>
+                                <p>Last personal record <strong>{{activity_one.recent_pr.date}} </strong>
+                                </p>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div>
+                        <div>
+                            {% autoescape off %}
+                            <div>
+                                {{ date_speed_chart_1 }}
+                            </div>
+                            {% endautoescape %}
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            {% autoescape off %}
+                            <div>
+                                {{ time_speed_chart_1 }}
+                            </div>
+                            {% endautoescape %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Activity Two-->
+            <hr class="mt-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <div>
+                        <h2 class="text-center">{{activity_two.name}} Analysis</h2>
+                        <h4 class="mb-5 text-center">Your #2 Activity</h4>
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <p>Max speed <strong>{{activity_two.max_speed}} mph</strong></p>
+                                <p>Average speed <strong>{{activity_two.avg_speed}} mph</strong></p>
+                                <p>Longest <strong>{{activity_two.max_distance}} mi </strong></p>
+                                <p>Mean length <strong> {{activity_two.avg_distance}} mi</strong></p>
+                                <p>Max elevation gain <strong>{{activity_two.max_elevation_gain}} ft </strong> </p>
+                                <p>Last personal record <strong>{{activity_two.recent_pr.date}} </strong>
+                                </p>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div>
+                        <div>
+                            {% autoescape off %}
+                            <div>
+                                {{ date_speed_chart_2 }}
+                            </div>
+                            {% endautoescape %}
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            {% autoescape off %}
+                            <div>
+                                {{ time_speed_chart_2 }}
+                            </div>
+                            {% endautoescape %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-0"></div>
+    </div>
+</div>
+
+
+{% endblock content %}

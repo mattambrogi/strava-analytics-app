@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid text-center" style="background-color:#1f262a; justify-content:center;">
+    <div class="container" style="color: white;">
+        <h1 class="display-4">Strava Analytics</h1>
+        <p class="lead">Get insights on your activities.</p>
+        <a href="{% url 'social:begin' 'strava' %}" class="btn btn-primary btn-lg mt-5" role="button"
+            aria-disabled="true">Login to Strava</a>
+
+    </div>
+</div>
+
+
+{% endblock content %}
