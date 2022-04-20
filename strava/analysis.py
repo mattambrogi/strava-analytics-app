@@ -2,13 +2,18 @@ from . plot_generator import *
 
 
 
-
-
 class Analysis():
 
     def get_analysis(self, activities):
+        '''
+            Takes cleaned activity data and returns a context dictionary which contains metrics and graphs to be displayed in UI.
+            Generates metrics and graphs for up to three activities where the user has at least 5 data entries.
+        '''
        
         def get_activity_stats(activity_data):
+            '''
+            Takes data from an indivudal activity and returns a dictionary with relevant summary statstics for that data.
+            '''
             dict = {}
             dict['max_speed'] = max(activity_data['max_speed'])
             dict['avg_speed'] = round(activity_data['average_speed'].mean(), 2)
@@ -21,6 +26,7 @@ class Analysis():
                 dict['recent_pr'] = {'date': pr_date['start_date_local'].item(), 'name': pr_date['name'].item() }
             return dict
 
+        # create context dictionary for UI
         context = {}
  
         # add overview data to context

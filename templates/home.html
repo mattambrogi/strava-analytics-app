@@ -8,9 +8,34 @@
         <h1 class="display-4">Strava Analytics</h1>
         <p class="lead">Get insights on your activities.</p>
         <a href="{% url 'social:begin' 'strava' %}" class="btn btn-primary btn-lg mt-5" role="button"
-            aria-disabled="true">Login to Strava</a>
+            aria-disabled="true">See Analysis</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-sm-0"></div>
+    <div class="col-md-6 col-sm-12">
+        <div class="text-center">
+            <h2 class="mb-4">How it works</h2>
+            <p>
+                Connect your Strava account by clicking the button above.
+            </p>
+            <p>
+                You'll then be able to view a report
+                containing
+                stats and charts for your top Strava activities. See your average speed, max length, performance vs time
+                of day, and more.
+            </p>
+            <h4 class="mt-5"> A few notes: </h4>
+            <ul>
+                <li>You will only see stats for activities that have at least 5 entries.</li>
+                <li>Stats will be generated for at most three activities.</li>
+                <li>The connection to Strava will not work if you use Google, or another 3rd party, to log in to Strava.
+                </li>
+            </ul>
+        </div>
 
     </div>
+    <div class="col-md-3 col-sm-0"></div>
 </div>
 
 

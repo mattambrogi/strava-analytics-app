@@ -9,8 +9,8 @@ import datetime as dt
 
 def get_date_vs_avg_speed(activity):
     df = activity
+    # changes date into distance from an arbirary past date, done for plotting purposed
     df['serialized_date'] = [(d - dt.date(1970,1,1)).days for d in df['start_date_local']]
-
     fig = px.scatter(df, x="start_date_local", y="average_speed", height=500,
     labels={
             "start_date_local": "Date",
@@ -19,9 +19,6 @@ def get_date_vs_avg_speed(activity):
         title="Average Speed over Time")
     fig.update_layout(title_x=0.5, font_family="Roboto Mono", margin=dict(l=5, r=5),)
     fig.update_yaxes(title=None)
-    #fig.update_xaxes(tickvals= df['serialized_date'][0::5], ticktext = df['start_date_local'][0::5])
-    # Add trendline
-    #fig.add_traces(list(px.scatter(x=df['start_date_local_2'], y=df['average_speed'], trendline="lowess", trendline_options=dict(frac=0.3), height=500,).select_traces()))
     plot_div = plot(fig, output_type='div')
     return plot_div
 
@@ -39,14 +36,10 @@ def get_overview_bar_chart(activity_overview):
     return plot_div
 
 def get_time_of_day_speed(activity):
-    #activity['start_time'] = dt.datetime.combine(dt.date(2022,1,1), activity['start_time'] )
-    #above didn't work because can't do to series, need to do indivudually
     x_data = activity['start_time'].tolist()
     y_data = activity['average_speed'].tolist()
     for index, time in enumerate(x_data):
         x_data[index] = dt.datetime.combine(dt.date(2022, 1, 1), time)
-    #df['start_date_local_2'] = [(d - dt.date(1970,1,1)).days for d in df['start_date_local']]
-
     fig = px.scatter(x=x_data, y=y_data, height=500, 
     labels={
             "x": "Time of day",
@@ -57,7 +50,6 @@ def get_time_of_day_speed(activity):
     fig.update_xaxes(type='date', 
                 tickformat='%H:%M', 
                 nticks=24, 
-                #range=[dt.datetime(2022, 1, 1, 7, 0),dt.datetime(2022, 1, 1, 23, 00)]) #7 to 11, could dyanimcally set
                 range=[min(x_data),max(x_data)])
     fig.update_yaxes(title=None)
     plot_div = plot(fig, output_type='div')
@@ -68,7 +60,6 @@ def get_time_of_day_length(activity):
     y_data = activity['distance'].tolist()
     for index, time in enumerate(x_data):
         x_data[index] = dt.datetime.combine(dt.date(2022, 1, 1), time)
-
     fig = px.scatter(x=x_data, y=y_data, height=500, 
     labels={
             "x": "Time of day",
@@ -79,12 +70,12 @@ def get_time_of_day_length(activity):
     fig.update_xaxes(type='date', 
                 tickformat='%H:%M', 
                 nticks=24, 
-                #range=[dt.datetime(2022, 1, 1, 7, 0),dt.datetime(2022, 1, 1, 23, 00)]) #7 to 11, could dyanimcally set
                 range=[min(x_data),max(x_data)])
     fig.update_yaxes(title=None)
     plot_div = plot(fig, output_type='div')
     return plot_div
 
+# Start time frequency not currently displayed in UI
 def get_start_freq(activity):
     x_data = activity['start_time'].tolist()
     for index, time in enumerate(x_data):
