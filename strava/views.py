@@ -29,10 +29,7 @@ def analysis_view(request):
     activities = api_service.clean_data(data)
     analysis_service = Analysis()
     analysis = analysis_service.get_analysis(activities)
-    plots = get_plots(activities)
     context = analysis
-    context.update(plots)
-
 
     return render(request, 'analysis.html', context)
 
