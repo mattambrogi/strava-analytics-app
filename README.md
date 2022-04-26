@@ -6,7 +6,7 @@ A web app that provides Strava users with insights and analysis of their activit
 This is a web app built for athletes who use the app [Strava](https://www.strava.com/) to track activities such as running, cycling, and hiking. The app allows users see a report of key stats and trends for each of their top three Strava activities. Users's just need to visit the landing page, authenticate their Strava profile, and will then be taken to the report generated from their data. 
 
 
-## Why did I build it
+## Why I built it
 Strava withholds most insights for paying subscribers. A while back I wrote an article about how to use Python to pull data from the Strava API and analyze it. I got a lot of inbound interest after publishing the article. Others wanted to see the same analysis, but were not familiar with Python, accessing data from APIs, Pandas, or many of the other tools I used. 
 
 During Recurse Center, I decided to build a web app that would generate this analysis for others without them having to do any work. 
@@ -33,6 +33,8 @@ During Recurse Center, I decided to build a web app that would generate this ana
 - Django Social Auth
 - Pandas
 - Plotly
+- HTML, CSS, Bootstrap frontend
+- Heroku deployment
 
 
 ## Future work
