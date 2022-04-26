@@ -42,7 +42,7 @@ If I carve out more time to work on this in the future, there are a number of fe
 - Tests
   - I would like to add unit tests. I would start with 1. Testing the API service and 2. Testing the analysis service
 - Trendlines for charts
- - I would like users to see trendlines on their charts. This turns out to be tricky because the optimal trendline depends on how many data points a user has. I.e. a linear trendline may be most informative if a user has a high number of recorded activities, but useless with fewer. There are also technical hurdles when creating trendlines with dates on the x axis in plotly. 
+  - I would like users to see trendlines on their charts. This turns out to be tricky because the optimal trendline depends on how many data points a user has. I.e. a linear trendline may be most informative if a user has a high number of recorded activities, but useless with fewer. There are also technical hurdles when creating trendlines with dates on the x axis in plotly. 
 - Google OAuth bug
   - There is a bug that prevents users from authenticating their Strava account if they signed up with Strava via Google. This seems to be a bug on the Google side, but I would like to explore it further given the time. 
 
