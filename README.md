@@ -38,11 +38,16 @@ During Recurse Center, I decided to build a web app that would generate this ana
 
 
 ## Future work
+
+### Refactoring
+I plan to refactor the analysis service and templates to reduce repetitive code. Currently, the service is hard coded to look at threee activites and hard codes a dictionary of values for each. I would like to resign this so that the service iterates through the input activity array. For each activity, it will create an instance of the Activity class (to be implemented) and assign the now hard coded keys as instance variables. This class will have a to_dict() method. The output dictionaries will then be fed to the template in an array. The template will then be able to iterate through this array, reducing both front and back end code.
+
+### Features
 If I carve out more time to work on this in the future, there are a number of features I would add.
 - Error handling
   - There is minimal error handling or messaging built into the project. For example, a user may be able to connect their Strava acccount, but if they don't have at least five data points for a given activity, they will not see any analysis. Even through this is noted on the landing page, this could still happen. If so, the user should be displayed a message that communciates why.
 - Tests
-  - I would like to add unit tests. I would start with 1. Testing the API service and 2. Testing the analysis service
+  - I would like to add tests for the analysis service. Given controlled input data, does it output the stats I would expect?
 - Trendlines for charts
   - I would like users to see trendlines on their charts. This turns out to be tricky because the optimal trendline depends on how many data points a user has. I.e. a linear trendline may be most informative if a user has a high number of recorded activities, but useless with fewer. There are also technical hurdles when creating trendlines with dates on the x axis in plotly. 
 - Google OAuth bug
