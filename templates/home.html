@@ -2,6 +2,20 @@
 
 {% block title %}Home{% endblock title %}
 
+
+{% block analytics %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H9MTZFZ0BP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-H9MTZFZ0BP');
+</script>
+{% endblock analytics %}
+
+
 {% block content %}
 <div class="jumbotron jumbotron-fluid text-center" style="background-color:#1f262a; justify-content:center;">
     <div class="container" style="color: white;">
@@ -22,16 +36,14 @@
             <p>
                 You'll then be able to view a report
                 containing
-                stats and charts for your top Strava activities. See your average speed, max length, performance vs time
+                stats and charts for your top three Strava activities. See your average speed, max length, performance
+                vs time
                 of day, and more.
             </p>
-            <h4 class="mt-5"> A few notes: </h4>
-            <ul>
-                <li>You will only see stats for activities that have at least 5 entries.</li>
-                <li>Stats will be generated for at most three activities.</li>
-                <li>The connection to Strava will not work if you use Google, or another 3rd party, to log in to Strava.
-                </li>
-            </ul>
+            <p>
+                Stats will only be generated for activities that have five or more entries. You can log in to Strava
+                using email, Facebook, or Apple ID. Google authentication is unsupported.
+            </p>
         </div>
 
     </div>

@@ -60,4 +60,6 @@ There are also a handful of features that I would classify as nice to haves:
 ## Reflections
 This project taught me a lot. I explored program design and separation of concerns. I learned a great deal about OAuth. I learned how to run, and present, analysis from the backend. 
 
+This was a great opportunity to think about the pros and cons of handling the analysis and plot generation on the client vs server. It was also a practical exercise in object oriented programming as the app is structured around an Activity object.
+
 More generally, I am interested in building tools that help others learn from and explore data. This was a great exercise in that. 
